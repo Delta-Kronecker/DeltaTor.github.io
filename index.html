@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Download DeltaTor for Windows and Android</title>
 <meta name="description" content="Download DeltaTor — an open-source Tor client for Windows 10/11 and Android 7.0+. Several pluggable transports race at once, bridge lists are built in, no telemetry. Android 2.1.2 · Windows 2.0.0.">
-<meta name="theme-color" content="#05091A">
+<meta name="theme-color" content="#0A100C">
 <meta name="color-scheme" content="dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305091A'/%3E%3Cpath d='M32 12 52 50H12z' fill='none' stroke='%235B8CFF' stroke-width='6' stroke-linejoin='round'/%3E%3Cpath d='M32 30 42 48H22z' fill='%2322D3EE'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A100C'/%3E%3Cpath d='M32 12 52 50H12z' fill='none' stroke='%239DB888' stroke-width='6' stroke-linejoin='round'/%3E%3Cpath d='M32 30 42 48H22z' fill='%23D4B464'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DeltaTor for Windows and Android">
 <meta property="og:description" content="Open-source Tor client with transport auto-race and built-in bridges — Android 2.1.2, Windows 2.0.0">
@@ -18,17 +18,17 @@
 <link rel="canonical" href="https://delta-kronecker.github.io/DeltaTor.github.io/">
 <style>
 :root{
-  --bg:#05091A;
-  --bg-2:#080E24;
+  --bg:#0A100C;
+  --bg-2:#0E1611;
   --surface:rgba(255,255,255,.045);
-  --surface-2:rgba(255,255,255,.07);
-  --stroke:rgba(255,255,255,.10);
-  --stroke-2:rgba(255,255,255,.16);
-  --txt:#EAF0FF;
-  --muted:#96A2C4;
-  --brand:#5B8CFF;
-  --brand-2:#22D3EE;
-  --ok:#34D399;
+  --surface-2:rgba(255,255,255,.075);
+  --stroke:rgba(226,232,212,.10);
+  --stroke-2:rgba(226,232,212,.18);
+  --txt:#EFEFE6;
+  --muted:#A5AE99;
+  --brand:#9DB888;
+  --brand-2:#D4B464;
+  --ok:#8FBF7F;
   --radius:18px;
   --max:1080px;
   --font:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -39,9 +39,9 @@ body{
   margin:0;background:var(--bg);color:var(--txt);font-family:var(--font);
   line-height:1.7;overflow-x:hidden;
   background-image:
-    radial-gradient(900px 520px at 85% -8%, rgba(91,140,255,.20), transparent 62%),
-    radial-gradient(760px 480px at 8% 4%, rgba(34,211,238,.13), transparent 60%),
-    radial-gradient(1000px 700px at 50% 118%, rgba(91,140,255,.10), transparent 60%);
+    radial-gradient(900px 520px at 85% -8%, rgba(212,180,100,.16), transparent 62%),
+    radial-gradient(760px 480px at 8% 4%, rgba(157,184,136,.14), transparent 60%),
+    radial-gradient(1000px 700px at 50% 118%, rgba(157,184,136,.10), transparent 60%);
   background-attachment:fixed;
 }
 a{color:inherit}
@@ -50,12 +50,12 @@ a{color:inherit}
 header{
   position:sticky;top:0;z-index:50;
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  background:rgba(5,9,26,.72);border-bottom:1px solid var(--stroke);
+  background:rgba(10,16,12,.74);border-bottom:1px solid var(--stroke);
 }
 .bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:800;letter-spacing:.2px;font-size:17px}
-.mark{width:32px;height:32px;flex:none;border-radius:9px;background:linear-gradient(140deg,#0B1330,#131C44);
-  display:grid;place-items:center;border:1px solid var(--stroke-2);box-shadow:0 6px 18px rgba(91,140,255,.22)}
+.mark{width:32px;height:32px;flex:none;border-radius:9px;background:linear-gradient(140deg,#111A13,#1A2418);
+  display:grid;place-items:center;border:1px solid var(--stroke-2);box-shadow:0 6px 18px rgba(212,180,100,.22)}
 .mark svg{width:18px;height:18px;display:block}
 .hdr-right{display:flex;align-items:center;gap:10px}
 .ghost{
@@ -63,36 +63,36 @@ header{
   padding:7px 13px;border-radius:999px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;
   text-decoration:none;transition:.18s;white-space:nowrap
 }
-.ghost:hover{background:var(--surface-2);border-color:rgba(91,140,255,.5);transform:translateY(-1px)}
+.ghost:hover{background:var(--surface-2);border-color:rgba(212,180,100,.5);transform:translateY(-1px)}
 
 .hero{padding:74px 0 46px;text-align:center}
 .pill{
   display:inline-flex;align-items:center;gap:9px;padding:6px 15px;border-radius:999px;
-  background:rgba(91,140,255,.12);border:1px solid rgba(91,140,255,.34);
-  color:#CBD8FF;font-size:13px;font-weight:700;margin-bottom:24px
+  background:rgba(157,184,136,.12);border:1px solid rgba(157,184,136,.36);
+  color:#D9E4C8;font-size:13px;font-weight:700;margin-bottom:24px
 }
-.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(52,211,153,.16);animation:pulse 2.2s infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(52,211,153,0)}}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(143,191,127,.16);animation:pulse 2.2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(143,191,127,0)}}
 h1{margin:0 0 16px;font-size:clamp(30px,6vw,54px);line-height:1.22;letter-spacing:-.5px;font-weight:900}
-.grad{background:linear-gradient(100deg,#7FA8FF 10%,#22D3EE 55%,#7FA8FF 95%);
+.grad{background:linear-gradient(100deg,#EAD9A6 10%,#9DB888 55%,#EAD9A6 95%);
   -webkit-background-clip:text;background-clip:text;color:transparent}
 .sub{max-width:660px;margin:0 auto;color:var(--muted);font-size:clamp(15px,2.4vw,18px)}
 
 .cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:36px}
 .dl{
   position:relative;display:inline-flex;align-items:center;gap:13px;text-decoration:none;
-  padding:17px 30px;border-radius:16px;font-weight:800;font-size:17px;color:#04070F;
-  background:linear-gradient(135deg,#8FB4FF,#22D3EE 58%,#5B8CFF);
-  box-shadow:0 16px 40px rgba(56,120,255,.36),0 3px 0 rgba(255,255,255,.28) inset;
+  padding:17px 30px;border-radius:16px;font-weight:800;font-size:17px;color:#15180F;
+  background:linear-gradient(135deg,#EAD9A6,#D4B464 55%,#C2A14C);
+  box-shadow:0 16px 40px rgba(212,180,100,.32),0 3px 0 rgba(255,255,255,.30) inset;
   transition:.2s;overflow:hidden;isolation:isolate;min-width:min(330px,100%)
 }
-.dl.alt{background:linear-gradient(135deg,#B9C9FF,#8FB4FF 55%,#5B8CFF)}
+.dl.alt{background:linear-gradient(135deg,#CFDCBB,#9DB888 55%,#86A172)}
 .dl::after{
   content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.55) 45%,transparent 70%);
   transform:translateX(-120%);transition:.7s
 }
-.dl:hover{transform:translateY(-3px);box-shadow:0 22px 52px rgba(56,120,255,.46)}
+.dl:hover{transform:translateY(-3px);box-shadow:0 22px 52px rgba(212,180,100,.44)}
 .dl:hover::after{transform:translateX(120%)}
 .dl:active{transform:translateY(0)}
 .dl svg{width:22px;height:22px;flex:none}
@@ -100,8 +100,8 @@ h1{margin:0 0 16px;font-size:clamp(30px,6vw,54px);line-height:1.22;letter-spacin
 .dl .txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.35}
 .dl .txt b{font-size:17px}
 .hint{color:var(--muted);font-size:13.5px}
-.hint a{color:#9FB6FF;text-decoration:none;border-bottom:1px solid rgba(159,182,255,.35)}
-.hint a:hover{border-color:#9FB6FF}
+.hint a{color:#DCC78E;text-decoration:none;border-bottom:1px solid rgba(220,199,142,.35)}
+.hint a:hover{border-color:#DCC78E}
 
 section{padding:34px 0}
 .sec-h{display:flex;align-items:center;gap:14px;margin-bottom:20px}
@@ -112,21 +112,21 @@ section{padding:34px 0}
   background:var(--surface);border:1px solid var(--stroke);border-radius:var(--radius);
   padding:20px;transition:.2s;position:relative;overflow:hidden
 }
-.card:hover{border-color:rgba(91,140,255,.42);background:var(--surface-2);transform:translateY(-3px)}
+.card:hover{border-color:rgba(157,184,136,.45);background:var(--surface-2);transform:translateY(-3px)}
 .card .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
 .card h3{margin:0;font-size:15.5px;font-weight:800;font-family:ui-monospace,"Cascadia Mono",Menlo,Consolas,monospace;letter-spacing:-.2px}
 .tag{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap;
-  background:rgba(34,211,238,.13);border:1px solid rgba(34,211,238,.32);color:#7FE9FA}
+  background:rgba(212,180,100,.13);border:1px solid rgba(212,180,100,.38);color:#E7D3A0}
 .tag.alt{background:rgba(255,255,255,.07);border-color:var(--stroke-2);color:var(--muted)}
 .card p{margin:0 0 15px;color:var(--muted);font-size:13.5px;min-height:44px}
 .card .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.size{font-size:12.5px;color:#7E8CB2;font-family:ui-monospace,Consolas,monospace}
+.size{font-size:12.5px;color:#8B9580;font-family:ui-monospace,Consolas,monospace}
 .mini{
   display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:13.5px;font-weight:800;
-  padding:9px 17px;border-radius:11px;background:rgba(91,140,255,.14);border:1px solid rgba(91,140,255,.36);
-  color:#CBD8FF;transition:.18s
+  padding:9px 17px;border-radius:11px;background:rgba(157,184,136,.14);border:1px solid rgba(157,184,136,.4);
+  color:#D9E4C8;transition:.18s
 }
-.mini:hover{background:rgba(91,140,255,.26);color:#fff;transform:translateY(-1px)}
+.mini:hover{background:rgba(157,184,136,.26);color:#fff;transform:translateY(-1px)}
 .mini svg{width:15px;height:15px}
 
 .steps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));counter-reset:s}
@@ -134,38 +134,33 @@ section{padding:34px 0}
 .step::before{
   counter-increment:s;content:counter(s,decimal);
   position:absolute;top:-13px;inset-inline-start:18px;width:27px;height:27px;border-radius:9px;
-  display:grid;place-items:center;font-size:13px;font-weight:900;color:#04070F;
-  background:linear-gradient(135deg,#8FB4FF,#22D3EE);box-shadow:0 6px 16px rgba(56,120,255,.4)
+  display:grid;place-items:center;font-size:13px;font-weight:900;color:#15180F;
+  background:linear-gradient(135deg,#EAD9A6,#9DB888);box-shadow:0 6px 16px rgba(212,180,100,.35)
 }
 .step h4{margin:6px 0 7px;font-size:15px;font-weight:800}
 .step p{margin:0;color:var(--muted);font-size:13.5px}
-.note{
-  display:flex;gap:12px;align-items:flex-start;margin-top:18px;padding:15px 17px;border-radius:14px;
-  background:rgba(255,196,86,.08);border:1px solid rgba(255,196,86,.26);color:#F3DDA6;font-size:13.5px
-}
-.note b{color:#FFE1A1}
-.note svg{width:18px;height:18px;flex:none;margin-top:3px}
 .fine{margin-top:16px;color:var(--muted);font-size:13px}
-.spec-line{margin-top:14px;text-align:center;color:#7E8CB2;font-size:12.5px;font-family:ui-monospace,Consolas,monospace}
+.fine b{color:#E7D3A0}
+.spec-line{margin-top:14px;text-align:center;color:#8B9580;font-size:12.5px;font-family:ui-monospace,Consolas,monospace}
 
 .feat{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
 .f{background:var(--surface);border:1px solid var(--stroke);border-radius:var(--radius);padding:19px}
 .f .ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;margin-bottom:12px;
-  background:linear-gradient(140deg,rgba(91,140,255,.24),rgba(34,211,238,.16));border:1px solid rgba(91,140,255,.3)}
+  background:linear-gradient(140deg,rgba(157,184,136,.24),rgba(212,180,100,.16));border:1px solid rgba(157,184,136,.35)}
 .f .ic svg{width:18px;height:18px}
 .f h4{margin:0 0 6px;font-size:15px;font-weight:800}
 .f p{margin:0;color:var(--muted);font-size:13.5px}
 
-footer{border-top:1px solid var(--stroke);margin-top:40px;padding:34px 0 44px;background:rgba(0,0,0,.22)}
+footer{border-top:1px solid var(--stroke);margin-top:40px;padding:34px 0 44px;background:rgba(0,0,0,.30)}
 .f-grid{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:flex-start}
 .f-links{display:flex;flex-wrap:wrap;gap:8px}
 .f-links a{
   text-decoration:none;font-size:13.5px;font-weight:700;color:var(--muted);
   padding:7px 14px;border-radius:999px;border:1px solid var(--stroke);background:var(--surface);transition:.18s
 }
-.f-links a:hover{color:var(--txt);border-color:rgba(91,140,255,.5);background:var(--surface-2)}
-.legal{color:#6E7BA0;font-size:12.5px;max-width:640px;margin-top:16px;line-height:1.8}
-.legal a{color:#9FB6FF;text-decoration:none}
+.f-links a:hover{color:var(--txt);border-color:rgba(212,180,100,.5);background:var(--surface-2)}
+.legal{color:#7C8570;font-size:12.5px;max-width:640px;margin-top:16px;line-height:1.8}
+.legal a{color:#DCC78E;text-decoration:none}
 .legal a:hover{text-decoration:underline}
 
 @media (max-width:640px){
@@ -185,7 +180,7 @@ footer{border-top:1px solid var(--stroke);margin-top:40px;padding:34px 0 44px;ba
   <div class="wrap bar">
     <a class="brand" href="./">
       <span class="mark" aria-hidden="true">
-        <svg viewBox="0 0 64 64" fill="none"><path d="M32 10 54 52H10z" stroke="#5B8CFF" stroke-width="7" stroke-linejoin="round"/><path d="M32 32 43 51H21z" fill="#22D3EE"/></svg>
+        <svg viewBox="0 0 64 64" fill="none"><path d="M32 10 54 52H10z" stroke="#9DB888" stroke-width="7" stroke-linejoin="round"/><path d="M32 32 43 51H21z" fill="#D4B464"/></svg>
       </span>
       <span>DeltaTor <span class="full" style="color:var(--muted);font-weight:600;font-size:13px">Windows &amp; Android</span></span>
     </a>
@@ -332,14 +327,6 @@ footer{border-top:1px solid var(--stroke);margin-top:40px;padding:34px 0 44px;ba
         <p>Transports race automatically until one reaches 100%, and the winner stays connected.</p>
       </div>
     </div>
-
-    <div class="note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
-      <div>
-        <b>Not for x86 emulators.</b>
-        Tor and lyrebird are only built for ARM, so x86/x86_64 emulators will not run the app. Install it on a real ARM device.
-      </div>
-    </div>
   </section>
 
   <section class="wrap">
@@ -348,22 +335,22 @@ footer{border-top:1px solid var(--stroke);margin-top:40px;padding:34px 0 44px;ba
     </div>
     <div class="feat">
       <div class="f">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#8FB4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7z"/></svg></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C7D6B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7z"/></svg></div>
         <h4>Transport auto-race</h4>
         <p>vanilla, obfs4 and webtunnel start side by side — whichever bootstraps first wins, and a memory of past successes reconnects faster next time.</p>
       </div>
       <div class="f">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#8FB4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C7D6B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
         <h4>Bridges built in</h4>
         <p>Tested bridge lists ship inside every build and refresh from the collector, so a fresh install works before the first download.</p>
       </div>
       <div class="f">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#8FB4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C7D6B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg></div>
         <h4>Exit country control <span style="color:var(--muted);font-weight:600">· Android</span></h4>
         <p>Pin any number of exit countries and see your real exit IP and country after connecting.</p>
       </div>
       <div class="f">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#8FB4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C7D6B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
         <h4>Zero telemetry</h4>
         <p>No account, no analytics, no crash reporting — the app never identifies you or phones home.</p>
       </div>
@@ -377,7 +364,7 @@ footer{border-top:1px solid var(--stroke);margin-top:40px;padding:34px 0 44px;ba
     <div class="f-grid">
       <a class="brand" href="./" style="text-decoration:none">
         <span class="mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none"><path d="M32 10 54 52H10z" stroke="#5B8CFF" stroke-width="7" stroke-linejoin="round"/><path d="M32 32 43 51H21z" fill="#22D3EE"/></svg>
+          <svg viewBox="0 0 64 64" fill="none"><path d="M32 10 54 52H10z" stroke="#9DB888" stroke-width="7" stroke-linejoin="round"/><path d="M32 32 43 51H21z" fill="#D4B464"/></svg>
         </span>
         <span>DeltaTor</span>
       </a>
