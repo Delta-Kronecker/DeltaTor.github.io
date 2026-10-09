@@ -1,0 +1,57 @@
+name: Update site
+
+# Renders index.html from index.template.html against the latest stable
+# releases of Delta-Kronecker/Delta-Tor and commits when anything changed,
+# so the download links and versions on the site track the releases
+# automatically. DELTA_PAT (a classic PAT with repo scope) is required:
+# a push made with the default GITHUB_TOKEN would not trigger the Pages
+# build, leaving the live site stale.
+
+on:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-site
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the PAT is configured
+        env:
+          DELTA_PAT: ${{ secrets.DELTA_PAT }}
+        run: |
+          if [ -z "$DELTA_PAT" ]; then
+            echo "::error::DELTA_PAT secret is missing; the push would not rebuild GitHub Pages."
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Render index.html from the latest stable releases
+        env:
+          GH_TOKEN: ${{ secrets.DELTA_PAT }}
+        run: python3 tools/update_site.py
+
+      - name: Commit and push if the page changed
+        env:
+          DELTA_PAT: ${{ secrets.DELTA_PAT }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --staged --quiet; then
+            echo "index.html is already up to date."
+            exit 0
+          fi
+          git commit -m "chore: sync index.html with the latest stable releases"
+          git remote set-url origin "https://x-access-token:${DELTA_PAT}@github.com/${GITHUB_REPOSITORY}.git"
+          git push origin HEAD:main
